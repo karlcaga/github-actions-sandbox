@@ -8,7 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Test
-        run: >-
-          echo Testing...
-          exit 1
-          echo Should not reach this message
+        run: echo Testing...
+      - name: Fail
+        run:  exit 1
+      - name: Debug  
+        run: echo Should not reach this message
