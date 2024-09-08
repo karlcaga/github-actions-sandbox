@@ -7,9 +7,17 @@ jobs:
     name: Simulate a test 
     runs-on: ubuntu-latest
     steps:
-      - name: Test
-        run: echo Testing...
-      - name: Fail
-        run:  exit 1
-      - name: Debug  
-        run: echo Should not reach this message
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install pytest
+        run: >-
+          python3 -m
+          pip install
+          pytest
+          --user
+      - name: Run tests
+        run: >-
+          python3 -m pytest .
