@@ -10,3 +10,4 @@ jobs:
       - name: Test
         run: >-
           echo Testing...
+          false
