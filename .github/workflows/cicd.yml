@@ -1,0 +1,22 @@
+name: "CICD"
+
+on: 
+  push:
+    branches: 
+      - main
+    tags:
+      - '*'
+  workflow_run:
+    workflows: ["Test and Lint"]
+    types:
+      - completed
+    branches: [main]
+  
+jobs: 
+  build: 
+    name: Simulate build
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Simulate build
+        run: >-
+          echo Building... 
