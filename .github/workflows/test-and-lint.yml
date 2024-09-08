@@ -11,3 +11,4 @@ jobs:
         run: >-
           echo Testing...
           exit 1
+          echo Should not reach this message
