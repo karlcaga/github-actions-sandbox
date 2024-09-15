@@ -14,4 +14,25 @@ jobs:
     steps: 
       - name: Simulate build
         run: >-
-          echo Building... 
+          echo "Build output" > artifact.txt
+      - name: Store the artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: artifact
+          path: artifact.txt
+  push-to-production:
+    name: Simulate a push to production
+    needs:
+      - build
+    if: startsWith(github.ref, 'refs/tags/')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download all the dists
+        uses: actions/download-artifact@v3
+        with:
+          name: artifact
+          path: artifact.txt
+      - name: Simulate push to production
+        run: >-
+          echo Pushing to production...
+          cat artifact.txt
