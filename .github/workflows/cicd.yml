@@ -8,6 +8,7 @@ on:
   
 jobs: 
   test:
+    name: Simulate a test post-merge 
     uses: ./github/workflows/shared/pytest.yml
   build: 
     name: Simulate build
@@ -23,7 +24,7 @@ jobs:
         with:
           name: artifact
           path: artifact.txt
-          
+
   push-to-production:
     name: Simulate a push to production
     needs:
