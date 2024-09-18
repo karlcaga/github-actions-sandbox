@@ -9,7 +9,7 @@ on:
 jobs: 
   test:
     name: Simulate a test post-merge 
-    uses: ./github/workflows/shared/pytest.yml
+    uses: ./.github/workflows/shared/pytest.yml
   build: 
     name: Simulate build
     needs: 
