@@ -6,4 +6,4 @@ on:
 jobs:
   test:
     name: Simulate a test pre-merge
-    uses: ./.github/workflows/shared/pytest.yml
+    uses: ./.github/workflows/pytest.yml
